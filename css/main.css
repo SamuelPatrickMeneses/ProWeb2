@@ -1,0 +1,36 @@
+.at5{
+    padding: 1em;
+    border-radius: .5em;
+    width: 300px;
+    overflow: hidden;
+}
+.at{
+    border-radius: 50px;
+    background-color: slategray;
+}
+div.b1 input[type="checkbox"]:before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: radial-gradient(rgb(134, 123, 123) 5%, black );
+    border-radius: 10px;
+    position: relative;
+    top: -4px;
+    left: -4px;
+}
+div.b1 input[type="checkbox"]:checked :before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: radial-gradient(red 5%, black );
+    border-radius: 10px;
+    position: relative;
+    top: -4px;
+    left: -4px;
+}
+div.b1{
+    width: 1em;
+    float: right;
+}
