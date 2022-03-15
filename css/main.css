@@ -5,32 +5,40 @@
     overflow: hidden;
 }
 .at{
-    border-radius: 50px;
-    background-color: slategray;
+    width: 50%;
+    float: right;
 }
-div.b1 input[type="checkbox"]:before{
-    content: "";
+.at5 p{
+    width: 50px;
+    margin: 1em 0;
+   float: left;
+
+}
+div.bc input[type="checkbox"] + .b{
     display: block;
     width: 20px;
     height: 20px;
     background-image: radial-gradient(rgb(134, 123, 123) 5%, black );
     border-radius: 10px;
     position: relative;
-    top: -4px;
-    left: -4px;
+    top: -10px;
+    border: 1px black solid;
 }
-div.b1 input[type="checkbox"]:checked :before{
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
+div.bc input[type="checkbox"]:checked + .b{
     background-image: radial-gradient(red 5%, black );
-    border-radius: 10px;
-    position: relative;
-    top: -4px;
-    left: -4px;
+
 }
-div.b1{
+div.bc{
     width: 1em;
     float: right;
+    padding-right: 8%;
+}
+.bc input{
+    position: relative;
+    z-index: 1;
+    top: 13.5px;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    opacity: 0;
 }
