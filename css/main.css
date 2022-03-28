@@ -13,18 +13,20 @@
 .at5 p{
     width: 50px;
     margin: 1em 0;
-    color: var(--tercearia);
+    color: var(--secundaria);
+    font-size: 1.5em;
     float: left;
 
 }
 div.bc input[type="checkbox"] + .b{
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-image: radial-gradient(rgb(134, 123, 123) 5%, black );
-    border-radius: 10px;
+    border-radius: 18px;
     position: relative;
-    top: -10px;
+    top: -12px;
+    left: -10px;
     border: 1px black solid;
 }
 div.bc input[type="checkbox"]:checked + .b{
@@ -34,14 +36,15 @@ div.bc input[type="checkbox"]:checked + .b{
 div.bc{
     width: 1em;
     float: right;
-    padding-right: 8%;
+    padding-right: 14px;
 }
 .bc input{
     position: relative;
     z-index: 1;
-    top: 13.5px;
-    width: 20px;
-    height: 20px;
+    top: 20px;
+    left: -10px;
+    width: 30px;
+    height: 30px;
     margin: 0;
     opacity: 0;
 }
