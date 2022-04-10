@@ -1,6 +1,12 @@
 .paleta1{
 	--secundaria:#ff0000;
 	--tercearia: #ffffff;
+	--tercearia-visited: #c4c4c4;
+	--tercearia-click: #c4c4c4;
 	--primaria:  #000000;
 	--quarternaria: #a50001;
+	--qinta: #430006;
+}
+body{
+	position: relative;
 }
