@@ -1,8 +1,23 @@
+function loadFooter(){
+    var encubadora = document.createElement('div');
+    var request = new XMLHttpRequest();
+    console.log(request.status)
+    request.onload = function(){
+        console.log(request.status)
+        if(request.status == 200){
+            encubadora.innerHTML = request.responseText;
+            var footers = document.getElementsByClassName('footer')[0];
+            console.log(footers)
+            footers.innerHTML = encubadora.firstChild.innerHTML;    
+        }
+    }
+    request.open('GET','/ProWeb2/footer.html');
+    request.send();
+}
 window.onload = function(){
-    console.log("oi")
-    $('footer').load('footer.html');
+    //console.log('oi')
+    loadFooter();
     var resizeFooter = function (){
-        console.log("oi")
         var footer  = document.querySelector("footer").getBoundingClientRect();
         var footerHeinght = footer.height;
         document.getElementsByTagName("body")[0].style.paddingBottom = `${footerHeinght}px`;
