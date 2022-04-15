@@ -3,7 +3,6 @@ function loadFooter(){
     var request = new XMLHttpRequest();
     console.log(request.status)
     request.onload = function(){
-        console.log(request.status)
         if(request.status == 200){
             encubadora.innerHTML = request.responseText;
             var footers = document.getElementsByClassName('footer')[0];
@@ -13,9 +12,9 @@ function loadFooter(){
     }
     request.open('GET','/ProWeb2/footer.html');
     request.send();
+    console.log(request.responseText)
 }
 window.onload = function(){
-    //console.log('oi')
     loadFooter();
     var resizeFooter = function (){
         var footer  = document.querySelector("footer").getBoundingClientRect();
