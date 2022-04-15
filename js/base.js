@@ -1,5 +1,5 @@
 function loadFooter(){
-    var encubadora = document.createElement('div');
+  /*  var encubadora = document.createElement('div');
     var request = new XMLHttpRequest();
     console.log(request.status)
     request.onload = function(){
@@ -12,7 +12,7 @@ function loadFooter(){
         }
     }
     request.open('GET','/ProWeb2/footer.html');
-    request.send();
+    request.send();*/
 }
 window.onload = function(){
     //console.log('oi')

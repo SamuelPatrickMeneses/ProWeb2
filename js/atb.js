@@ -1,12 +1,14 @@
 function atValide(at){
     var bcs = atToArray(at);
      bcs.forEach( (e, i) => {
-         e.querySelector('input').checked = i < at.value;
+        e.querySelector('input').checked = i < at.value;
      });
  }
  function atToArray(at){
     var bcs = [];
-    at.querySelectorAll('.bc').forEach(function (e) { bcs.push(e); });
+    at.querySelectorAll('.bc').forEach(function (e){
+         bcs.push(e); 
+        });
     return bcs;
  }
 (function(){
@@ -16,20 +18,20 @@ function atValide(at){
         var bcs = atToArray(at);
         var index = bcs.indexOf(src.parentNode);
         if(src.checked)
-            at.value = index + 1;
-        else
-            if(index > 0){
-                if(bcs.length - 1 > index){
-                    console.log('case!')
-                    if(bcs[index+1].checked){
-                        src.checked = true;
-                        at.value = index + 1;
-                    }else
-                        at.value = index;  
-                }
-                                   
+            at.value =  1 +  index ;
+        else{
+            if(index < (bcs.length -1)){
+                var next = bcs[index + 1].childNodes[1];
+                console.log(next)
+                if(next.checked){
+                    at.value = index + 1;
+                }else
+                at.value =   index
+
             }else
-                at.value = 0;
+                at.value = index;
+        }
+        atValide(at)
     } 
     window.addEventListener( 'load', function(){
         var inputs = [];

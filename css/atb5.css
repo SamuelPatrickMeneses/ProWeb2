@@ -35,7 +35,7 @@ div.bc input[type="checkbox"]:checked + .b{
 }
 div.bc{
     width: 1em;
-    float: right;
+    float: left;
     padding-right: 14px;
 }
 .bc input{
