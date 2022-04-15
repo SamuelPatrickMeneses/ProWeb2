@@ -6,13 +6,11 @@ function loadFooter(){
         if(request.status == 200){
             encubadora.innerHTML = request.responseText;
             var footers = document.getElementsByClassName('footer')[0];
-            console.log(footers)
             footers.innerHTML = encubadora.firstChild.innerHTML;    
         }
     }
     request.open('GET','/ProWeb2/footer.html');
     request.send();
-    console.log(request.responseText)
 }
 window.onload = function(){
     loadFooter();
