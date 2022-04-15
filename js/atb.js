@@ -22,7 +22,6 @@ function atValide(at){
         else{
             if(index < (bcs.length -1)){
                 var next = bcs[index + 1].childNodes[1];
-                console.log(next)
                 if(next.checked){
                     at.value = index + 1;
                 }else
