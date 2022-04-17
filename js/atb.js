@@ -30,6 +30,7 @@ function atValide(at){
             }else
                 at.value = index;
         }
+        console.log('case!')
         atValide(at)
     } 
     window.addEventListener( 'load', function(){

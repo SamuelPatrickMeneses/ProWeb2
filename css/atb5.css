@@ -1,21 +1,29 @@
 .at5{
-    padding: 1em;
-    width: 300px;
     background-color: var(--primaria);
-    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+    align-items: center;
+    flex-grow: 1;
     overflow: hidden;
 }
 .at{
-    width: 50%;
-    float: right;
+    width: auto;
+    display: flex;
+    flex-grow: 1;
 }
+.at5 .at{
+    padding-left: .5em;
+} 
 .at5 p{
-    width: 50px;
+    width: auto;
     margin: 1em 0;
     color: var(--secundaria);
-    font-size: 1.5em;
-    float: left;
-
+    font-size: 1em;
+    flex-grow: 2;
+    padding-right: .5em;
 }
 div.bc input[type="checkbox"] + .b{
     display: block;
@@ -24,7 +32,7 @@ div.bc input[type="checkbox"] + .b{
     background-image: radial-gradient(rgb(134, 123, 123) 5%, black );
     border-radius: 18px;
     position: relative;
-    top: -12px;
+    top: -23px;
     left: -10px;
     border: 1px black solid;
 }
@@ -34,13 +42,12 @@ div.bc input[type="checkbox"]:checked + .b{
 }
 div.bc{
     width: 1em;
-    float: left;
-    padding-right: 14px;
+    padding: 0 3px;
 }
 .bc input{
     position: relative;
     z-index: 1;
-    top: 20px;
+    top: 23px;
     left: -10px;
     width: 30px;
     height: 30px;

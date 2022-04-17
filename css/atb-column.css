@@ -1,12 +1,21 @@
+.atb-comteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 .atb-column{
     background-color: var(--primaria);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 1em;
     /*temp**/
-    width: 348px;
 
+}
+.atb-column-h{
+    font-size: 1.5em;
 }
 .atb-column{
     color: var(--secundaria);
