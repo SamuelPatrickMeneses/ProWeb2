@@ -1,27 +1,26 @@
 function atValide(at){
     var bcs = atToArray(at);
      bcs.forEach( (e, i) => {
-        e.querySelector('input').checked = i < at.value;
+        e.checked = i < at.value;
      });
  }
  function atToArray(at){
     var bcs = [];
-    at.querySelectorAll('.bc').forEach(function (e){
+    at.querySelectorAll('input[type="checkbox"]').forEach(function (e){
          bcs.push(e); 
         });
     return bcs;
  }
 (function(){
     function changeAt(event) {
-        var src = event.currentTarget;
-        var at = src.parentNode.parentNode.parentNode;
+        var at = this.parentNode.parentNode.parentNode;
         var bcs = atToArray(at);
-        var index = bcs.indexOf(src.parentNode);
-        if(src.checked)
+        var index = bcs.indexOf(this);
+        if(this.checked)
             at.value =  1 +  index ;
         else{
             if(index < (bcs.length -1)){
-                var next = bcs[index + 1].childNodes[1];
+                var next = bcs[index + 1];
                 if(next.checked){
                     at.value = index + 1;
                 }else
@@ -30,7 +29,7 @@ function atValide(at){
             }else
                 at.value = index;
         }
-        console.log('case!')
+        console.log(event.clientX, event.clientY)
         atValide(at)
     } 
     window.addEventListener( 'load', function(){

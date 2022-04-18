@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 }
 .atb-column{
     background-color: var(--primaria);
@@ -14,13 +14,14 @@
     /*temp**/
 
 }
+
 .atb-column-h{
     font-size: 1.5em;
 }
 .atb-column{
     color: var(--secundaria);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.25em;
     line-height: 2;
 }
 .atb-column-button{

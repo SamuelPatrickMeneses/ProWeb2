@@ -2,17 +2,17 @@
     background-color: var(--primaria);
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: space-around;
     align-items: center;
     flex-grow: 1;
     overflow: hidden;
+    position: relative;
 }
 .at{
     width: auto;
     display: flex;
-    flex-grow: 1;
+    justify-content: space-between;
 }
 .at5 .at{
     padding-left: .5em;
@@ -24,6 +24,7 @@
     font-size: 1em;
     flex-grow: 2;
     padding-right: .5em;
+    text-align: left;
 }
 div.bc input[type="checkbox"] + .b{
     display: block;
@@ -35,6 +36,7 @@ div.bc input[type="checkbox"] + .b{
     top: -23px;
     left: -10px;
     border: 1px black solid;
+    z-index: 0;
 }
 div.bc input[type="checkbox"]:checked + .b{
     background-image: radial-gradient(red 5%, black );
@@ -42,7 +44,8 @@ div.bc input[type="checkbox"]:checked + .b{
 }
 div.bc{
     width: 1em;
-    padding: 0 3px;
+    padding: 0 .25em;
+    flex-grow: 1;
 }
 .bc input{
     position: relative;
@@ -53,4 +56,17 @@ div.bc{
     height: 30px;
     margin: 0;
     opacity: 0;
+}
+.at5-close{
+    position: absolute;
+    top: 0;
+    right: 0; 
+}
+.at5-close-button{
+    background-color: var(--secundaria);
+    color: var(--primaria);
+    padding: .1em;
+}
+.displaynone{
+    display: none;
 }

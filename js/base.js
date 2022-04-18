@@ -1,25 +1,31 @@
-function loadFooter(){
+function loadByName(url, indent, resize){
     var encubadora = document.createElement('div');
     var request = new XMLHttpRequest();
-    console.log(request.status)
     request.onload = function(){
         if(request.status == 200){
             encubadora.innerHTML = request.responseText;
-            var footers = document.getElementsByClassName('footer')[0];
-            footers.innerHTML = encubadora.firstChild.innerHTML;    
+            var elements = document.getElementsByName(indent);
+            for(var e of elements)
+                e.innerHTML = encubadora.firstChild.innerHTML;   
+            if(typeof resize == 'function')
+                resize();
         }
     }
-    request.open('GET','/ProWeb2/footer.html');
+    request.open('GET', url);
     request.send();
 }
+
 window.onload = function(){
-    loadFooter();
     var resizeFooter = function (){
-        var footer  = document.querySelector("footer").getBoundingClientRect();
-        var footerHeinght = footer.height;
-        document.getElementsByTagName("body")[0].style.paddingBottom = `${footerHeinght}px`;
+        var bloc = document.getElementById('rodapé').getBoundingClientRect();
+        document.getElementsByTagName("body")[0].style.paddingBottom = `${bloc.height+24}px`;
     }
+    var resizeHeader = function (){
+        var bloc  = document.getElementById('cabesalho').getBoundingClientRect();
+        document.getElementsByTagName("body")[0].style.paddingTop = `${bloc.height+24}px`;
+    }
+    loadByName('/ProWeb2/footer.html','footer',resizeFooter);
+    loadByName('/ProWeb2/header.html','header', resizeHeader);
     document.body.classList.toggle("paleta1");
-    resizeFooter(); 
     window.addEventListener("resize",resizeFooter);
 }
