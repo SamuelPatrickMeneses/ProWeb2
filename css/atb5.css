@@ -59,14 +59,23 @@ div.bc{
 }
 .at5-close{
     position: absolute;
-    top: 0;
-    right: 0; 
-}
-.at5-close-button{
+    top: 0px;
+    right: 0px; 
     background-color: var(--secundaria);
     color: var(--primaria);
     padding: .1em;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
 }
+.at5-close::before{
+    content: "X";
+    position: relative;
+    top: -15px;
+    left: -2px;
+    font-weight: bold;
+}
+
 .displaynone{
     display: none;
 }
