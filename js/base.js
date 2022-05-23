@@ -24,8 +24,10 @@ window.onload = function(){
         var bloc  = document.getElementById('cabesalho').getBoundingClientRect();
         document.getElementsByTagName("body")[0].style.paddingTop = `${bloc.height+24}px`;
     }
-    loadByName('/ProWeb2/footer.html','footer',resizeFooter);
-    loadByName('/ProWeb2/header.html','header', resizeHeader);
+    loadByName('http://localhost/proweb2/footer.html','footer',resizeFooter);
+    loadByName('http://localhost/proweb2/header.html','header', resizeHeader);
     document.body.classList.toggle("paleta1");
     window.addEventListener("resize",resizeFooter);
+    var atbc = new AtbColumn({'name':'hablidade', 'content': new Array()});
+    document.querySelector('.atb-comteiner').appendChild(atbc.component);
 }
