@@ -34,7 +34,7 @@ var htmls = {
                 <div class="atb-column-content"></div>
                 <div class="atb-column-buttons">
                     <button class="atb-column-button atb-column-mais">+</button>
-                    <button onclick="hideCloseButton();" class="atb-column-button atb-column-menos">-</button>
+                    <button class="atb-column-button atb-column-menos">-</button>
                 </div>
             </div>`
-}
+};
