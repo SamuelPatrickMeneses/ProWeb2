@@ -1,0 +1,67 @@
+'use strict';
+//const db = require('./db');
+const htmlficha = require('./assetsJSON/htmlficha.js');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+app.use(express.json());
+app.use((error,request,response,next)=>{
+  response.type('text/plain');
+  console.log(request.body)
+  response.status(404);
+  response.send('404 - Error!');
+});
+app.use((error,request,response,next)=>{
+  response.type('text/plain');
+  response.status(500);
+  response.send('500 - Error!');
+});
+/*app.get('/htmlficha.js',(request,response)=>{
+  response.type('text/javascript');
+  var retorno = `var htmls = ${JSON.stringify(htmlficha)}; localStorage.setItem('htmls',  JSON.stringify(htmls));`;
+  response.send(retorno);
+});
+app.post('/cadastro',(request,response)=>{ 
+  response.type('text/plain');
+  let is = db.cadastro(request.body);
+  is.then((data)=>{
+    console.log(data)
+    if(data.length === 0){
+      response.status = 200;
+      response.send('true');
+    }else{
+      response.status = 400;
+      response.send('false');
+    }
+  });
+});
+app.post('/login',(request,response)=>{
+    response.type('text/plain');
+    let is = db.checkUser(request.body);
+    is.then((data)=>{
+        console.log(data);
+        if(data){
+          response.status = 200;
+          response.send('true');
+        }else{
+          response.status = 400;
+          response.send('false');
+        }
+    });
+});
+app.post('/panel',(request,response)=>{
+  response.type('text/plain');
+  let is = db.panel(request.body);
+  is.then((data)=>{
+      console.log(data);
+      if(data){
+        response.status = 200;
+        response.send(JSON.stringify(data));
+      }else{
+        response.status = 400;
+        response.send('false');
+      }
+  });
+});*/
+app.use(express.static(__dirname + '/public'));
+app.listen(port,()=>console.log(`Listem: ${port}\n`));
