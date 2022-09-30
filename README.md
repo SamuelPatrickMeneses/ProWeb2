@@ -15,8 +15,8 @@ Funções
 
 - [x] Função anônima com argumento
 - [x] Função anônima sem argumento
-- [ ] Função anônima com retorno
-- [ ] Função auto-executável
+- [x] Função anônima com retorno
+- [x] Função auto-executável
 - [x] Função com nome
 - [x] Função aninhada/local - declarar uma função dentro de outra
 - [x] Passagem de uma função como parâmetro
@@ -33,9 +33,9 @@ Eventos
 
 Acesso aos elementos DOM do HTML
 
-- [ ] Via referência DOM pelo id do elemento HTML
+- [x] Via referência DOM pelo id do elemento HTML
 - [x] Via getElementByID()
-- [x] Via getElementsByName()
+- [ ] Via getElementsByName()
 - [x] Via getElementsByTagName()
 - [x] Via seletores CSS usados na função querySelector() ou querySelectorAll()
 
@@ -56,8 +56,8 @@ Objetos Nativos
 Objetos
 
 - [x] Criar objeto usando função construtora ou notação literal
-- [ ] Criar objetos a partir da definição de classes do ES6
-- [ ] Usar herança prototipal nativa ou herança de classes do ES6
+- [x] Criar objetos a partir da definição de classes do ES6
+- [x] Usar herança prototipal nativa ou herança de classes do ES6
 
 Qualidade do código
 
@@ -66,8 +66,8 @@ Qualidade do código
 - [x] Usar strict mode
 - [x] Usar Module Pattern
 - [x] Usar pasta assets e subpastas resources e libraries para organizar o código
-- [ ] Usar let ou const ao invés de var
-- [x] Nomes de arquivos minúsculos e separados por hífen (dashed-case)
+- [x] Usar let ou const ao invés de var
+- [ ] Nomes de arquivos minúsculos e separados por hífen (dashed-case)
 
 Formulário
 
