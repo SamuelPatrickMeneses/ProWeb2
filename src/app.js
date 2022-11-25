@@ -1,11 +1,11 @@
 'use strict';
 //const db = require('./db');
-const htmlficha = require('./assetsJSON/htmlficha.js');
+const htmlficha = require('../assetsJSON/htmlficha.js');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.json());
-app.use((error,request,response,next)=>{
+/*app.use((error,request,response,next)=>{
   response.type('text/plain');
   console.log(request.body)
   response.status(404);
@@ -16,7 +16,7 @@ app.use((error,request,response,next)=>{
   response.status(500);
   response.send('500 - Error!');
 });
-/*app.get('/htmlficha.js',(request,response)=>{
+app.get('/htmlficha.js',(request,response)=>{
   response.type('text/javascript');
   var retorno = `var htmls = ${JSON.stringify(htmlficha)}; localStorage.setItem('htmls',  JSON.stringify(htmls));`;
   response.send(retorno);
@@ -63,5 +63,5 @@ app.post('/panel',(request,response)=>{
       }
   });
 });*/
-app.use(express.static(__dirname + '/public'));
-app.listen(port,()=>console.log(`Listem: ${port}\n`));
+app.use(express.static('/mnt/mmcblk0p4/docs/ProWeb2/public'));
+app.listen(port,() => console.log(`Listem: ${port}\n`));
