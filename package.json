@@ -3,22 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@types/jquery": "^3.5.14",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "mongodb": "^4.7.0",
-    "morgan": "~1.9.1"
+    "jquery": "^3.6.3",
+    "mongodb": "^4.12.1",
+    "morgan": "~1.9.1",
+    "objectschema": "https://github.com/SamuelPatrickMeneses/ObjectSchema.git"
   },
   "scripts": {
     "start": "nodemon ./src/app.js ",
-    "build:style":"tailwindcss -o ./public/assets/css/dev.css",
-    "start:style":"tailwindcss -o ./public/assets/css/dev.css -w"
+    "build:style": "tailwindcss -o ./public/assets/css/dev.css",
+    "start:style": "tailwindcss -o ./public/assets/css/dev.css -w"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
     "nodemon": "^2.0.19",
-    "relationship-selector-plugin": "github:SamuelPatrickMeneses/relationship-selector-plugin",
-    "objectschema": "git@github.com:SamuelPatrickMeneses/ObjectSchema.git"
+    "relationship-selector-plugin": "github:SamuelPatrickMeneses/relationship-selector-plugin"
   }
 }

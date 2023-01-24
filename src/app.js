@@ -1,10 +1,14 @@
 'use strict';
 //const db = require('./db');
+
 const htmlficha = require('../assetsJSON/htmlficha.js');
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
-app.use(express.json());
+const route = require('./api/index.js');
+const app = require('./config.js');
+const { Console } = require('console');
+const outrosSchema = require('./validation/storyteller/outrosSchema.js');
+const headerSchema = require('./validation/storyteller/headerSchema.js');
+const path = require('path');
+
 /*app.use((error,request,response,next)=>{
   response.type('text/plain');
   console.log(request.body)
@@ -63,5 +67,12 @@ app.post('/panel',(request,response)=>{
       }
   });
 });*/
-app.use(express.static('/mnt/mmcblk0p4/docs/ProWeb2/public'));
-app.listen(port,() => console.log(`Listem: ${port}\n`));
+
+app.setStatic(path.join(__dirname,'../public'));
+//app.use('/api',route);
+app.listen(app.get('port'),() => {
+  console.log(`port: ${app.get('port')}`);
+});
+/*https.createServer(app).listen(app.get('port'),() => console.log(
+  `listem port:${app.get('port')}`
+  ));*/

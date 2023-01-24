@@ -1,6 +1,7 @@
-const {arraySchema,booleanSchema,numberSchema,stringSchema,objectSchema} = require('objectShema');
+const {arraySchema,booleanSchema,numberSchema,stringSchema,objectSchema} = require('objectschema');
 
 module.exports = objectSchema({
-    value: stringSchema({min:1,max:20,notNull:true}),
+    value: stringSchema({min:0,max:20,notNull:true}),
     type: 'text',
+    size: 20,
 });

@@ -1,0 +1,33 @@
+.page{
+    min-width: 340px;
+    max-width: 1400px;
+    background-color: var(--primaria);
+    padding: 10em ;
+    margin: 0 auto;
+}
+.form-conteiner{
+    background-color: var(--tercearia);
+    border-radius: 15px;
+    padding: 2em;
+    width: 360px;
+    margin: 0 auto;
+}
+form{
+    width: 360px;
+}
+.input-form{
+    margin-bottom: 1em;
+    text-align: center;
+}
+.input-form input{
+    width: 360px;
+}
+form h3{
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+.form-links{
+    display: flex;
+    flex-direction: row;
+}

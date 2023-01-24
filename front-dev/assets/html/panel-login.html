@@ -1,0 +1,19 @@
+<div class="page" name="page">
+    <div class="form-conteiner" >
+        <form action="" id="login" class="grid-cols-1 p-4 gap-y-8 grid rounded-md shadow-md w-full son:text-center son:w-full">
+            <h3 class="text-2xl">Login</h3>
+
+            <input class="bg-gray-300 invalid:bg-paleta-1 rounded-sm" type="email" id="email" name="email" pattern="^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-z]+?$" required placeholder="Email.">
+
+
+            <input class="bg-gray-300 invalid:bg-paleta-1 rounded-sm" type="password" id="senha" name="senha" required minlength="8" maxlength="15" placeholder="Senha.">
+
+
+            <input class="p-4 text-center  text-xl transition-colors duration-200 bg-paleta-3 rounded-md box-border ring-2 ring-paleta-5 text-paleta-5 active:ring-paleta-3 active:bg-paleta-5 active:text-paleta-3" type="submit" id="submit" name="submit" value="Login" placeholder="Repita sua senha.">
+            <div class="flex row justify-around">
+                <p><a href="#cadastro" class="form-link anoder-panel">Nao possui uma conta?</a></p>
+                <p><a href="#login" class="form-link">Esqueceu sua senha?</a></p>
+            </div>
+        </form>
+    </div>
+</div>

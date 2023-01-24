@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('relationship-selector-plugin');
 module.exports = {
-  content: ['./public/*.html','./public/assets/html/*.html'],
+  content: ['./public/*.html','./public/assets/html/*.html','./public/app/components/*.js'],
   theme: {
     extend: {},
     colors:{
-      toreador:{
+      paleta:{
         1:'#dd2c68',
         2:'#f3afb6',
         3:'#9f5d77',
@@ -19,6 +19,8 @@ module.exports = {
     },
     minWidth: {
       '1/2': '50%',
+      '1/3': '33.33%',
+      '1/4': '25%'
     },
   },
   plugins: [plugin({

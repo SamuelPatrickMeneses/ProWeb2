@@ -1,0 +1,27 @@
+CACHE MANIFEST
+# v0.0.1
+CACHE:
+index.html
+assets/html/panel-login.html
+assets/html/panel-cadastro.html
+assets/css/reset.css
+assets/css/dev.css
+jquery-3.6.1.slim.min.js
+app/index.js
+app/util/ajax.js
+app/util/privado.js
+app/util/render.js
+app/controller/login-e-cadastro.js
+app/components/component.js
+app/components/bol.js
+app/components/atb.js
+app/components/label.js
+app/components/closerButton.js
+app/components/columnButton.js
+app/components/item.js
+app/components/listView.js
+app/components/itemListView.js
+app/components/column.js
+
+NETWORK:
+*

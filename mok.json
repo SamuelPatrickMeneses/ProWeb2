@@ -1,0 +1,442 @@
+{
+    "head": {
+        "nome": {
+            "name": "nome",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "natureza": {
+            "name": "natureza",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "geração": {
+            "name": "geração",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "jogador": {
+            "name": "jogador",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "comportamento": {
+            "name": "comportamento",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "senhor": {
+            "name": "senhor",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "crônica": {
+            "name": "crônica",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "clã": {
+            "name": "clã",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        },
+        "conceito": {
+            "name": "conceito",
+            "value": "3",
+            "type": "text",
+            "size": 20
+        }
+    },
+    "id": "#ficha",
+    "atributos": {
+        "físicos": {
+            "name": "físicos",
+            "list": [
+                {
+                    "name": "força",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "destreza",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "vigor",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": false
+        },
+        "sociais": {
+            "name": "sociais",
+            "list": [
+                {
+                    "name": "carisma",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "manipulação",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Aparência",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": false
+        },
+        "mentais": {
+            "name": "mentais",
+            "list": [
+                {
+                    "name": "Percepção",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Inteligência",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Raciocínio",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": false
+        }
+    },
+    "habilidades": {
+        "talentos": {
+            "name": "talentos",
+            "list": [
+                {
+                    "name": "Prontidão",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Esporte",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Briga",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Esquiva",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Empatia",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Expressão",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Intimidação",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Liderança",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Manha",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Lábia",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": true
+        },
+        "perícias": {
+            "name": "perícias",
+            "list": [
+                {
+                    "name": "Empatia com Animais",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Ofícios",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Condução",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Etiqueta",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Arma de Fogo",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Armas Brancas",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Performance",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Segurança",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Furtividade",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Sobrevivência",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": true
+        },
+        "conhecimentos": {
+            "name": "conhecimentos",
+            "list": [
+                {
+                    "name": "Acadêmicos",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Computador",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Finanças",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Investigação",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Direito",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Linguística",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Medicina",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Ocultismo",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Política",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "Ciência",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": true
+        }
+    },
+    "vantagens": {
+        "disciplinas": {
+            "name": "disciplinas",
+            "list": [],
+            "closable": true
+        },
+        "antecedentes": {
+            "name": "antecedentes",
+            "list": [],
+            "closable": true
+        },
+        "virtudes": {
+            "name": "virtudes",
+            "list": [
+                {
+                    "name": "coragem",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "autocontrole",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                },
+                {
+                    "name": "consciência",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 5
+                }
+            ],
+            "closable": false
+        }
+    },
+    "outros": {
+        "desvantagens": {
+            "name": "desvantagens",
+            "list": [],
+            "closable": true
+        },
+        "estatus": {
+            "name": "estatus",
+            "list": [
+                {
+                    "name": "humanidade",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 10
+                },
+                {
+                    "limit": 0,
+                    "name": "força de vontade",
+                    "value": 3,
+                    "type": "atb",
+                    "size": 10
+                },
+                {
+                    "name": "pontos de sangue",
+                    "value": 3,
+                    "type": "atb-box",
+                    "size": 10
+                }
+            ],
+            "closable": false
+        },
+        "vitalidade": {
+            "name": "vitalidade",
+            "list": [
+                {
+                    "name": "escoriado",
+                    "value": 2,
+                    "type": "life-box"
+                },
+                {
+                    "name": "machucado",
+                    "value": 1,
+                    "type": "life-box"
+                },
+                {
+                    "name": "ferido",
+                    "value": 0,
+                    "type": "life-box"
+                },
+                {
+                    "name": "ferido gravemente",
+                    "value": 0,
+                    "type": "life-box"
+                },
+                {
+                    "name": "espancado",
+                    "value": 0,
+                    "type": "life-box"
+                },
+                {
+                    "name": "aleijado",
+                    "value": 0,
+                    "type": "life-box"
+                },
+                {
+                    "name": "incapacitado",
+                    "value": 0,
+                    "type": "life-box"
+                }
+            ],
+            "closable": false
+        }
+    }
+}
