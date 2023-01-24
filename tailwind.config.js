@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('relationship-selector-plugin');
 module.exports = {
-  content: ['./public/*.html','./public/assets/html/*.html','./public/app/components/*.js'],
+  content: ['./front-dev/*.html','./front-dev/assets/html/*.html','./front-dev/app/components/*.ts'],
   theme: {
     extend: {},
     colors:{
