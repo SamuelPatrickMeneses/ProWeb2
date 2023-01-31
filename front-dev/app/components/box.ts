@@ -16,13 +16,15 @@ const template = $(`
     </template>
 `);
 class Box extends Bol{
-    
+    static readonly XValue = 2;
     build(props: any){
         super.build(props,template);
         
         this.addEventListener('click',() => {
             this.state.value = (this.value + 1) % 3;
         });
+
+        this.onclick = this.render;
         
         this.value = props.value | 0;
     }

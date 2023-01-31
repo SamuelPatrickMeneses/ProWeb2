@@ -1,7 +1,7 @@
 'use strict';
 //const db = require('./db');
 
-const htmlficha = require('../assetsJSON/htmlficha.js');
+//const htmlficha = require('../assetsJSON/htmlficha.js');
 const route = require('./api/index.js');
 const app = require('./config.js');
 const { Console } = require('console');

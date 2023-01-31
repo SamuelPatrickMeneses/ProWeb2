@@ -52,7 +52,7 @@ class Atb extends Component{
     }
     render(){
         this?.list?.forEach((e,i) => 
-            e.value = i < this.value ? 2: 0
+            e.value = i < this.value ? Box.XValue: 0
         );
     }
     static get is(){
@@ -63,7 +63,7 @@ class Atb extends Component{
     }
     set value(value: number){
         let previousSibling = <Atb> this.previousSibling;
-        if(previousSibling){
+        if(previousSibling instanceof Atb){
             let limit = previousSibling.value;
             this.state.value = Math.min(limit, value);
         }else
