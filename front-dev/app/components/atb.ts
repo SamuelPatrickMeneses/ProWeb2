@@ -9,10 +9,10 @@ const template = $(`
         </div>
     </template>
 `);
-
+const emptyJQueryObject = $('');
 class Atb extends Component{
     protected list      : Bol[]  = [];
-    protected content   : JQuery = $('');
+    protected content   : JQuery = emptyJQueryObject;
     public    size      : number = 0;
     constructor(){
         super();
@@ -52,7 +52,7 @@ class Atb extends Component{
     }
     render(){
         this?.list?.forEach((e,i) => 
-            e.value = i < this.value ? Box.XValue: 0
+            e.value = i < this.value ? Box.XValue   : 0
         );
     }
     static get is(){
