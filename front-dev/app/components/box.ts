@@ -29,18 +29,17 @@ class Box extends Bol{
         this.value = props.value | 0;
     }
     render(){
-        const shadowRoot = <ShadowRoot> this.shadowRoot;
         switch(this.value){
             case 0:
-                $('.bar',shadowRoot).css('display','none');
+                $('.bar',this.sRoot).css('display','none');
                 break;
             case 1:
-                $('.bar1',shadowRoot).css('display','block');
-                $('.bar2',shadowRoot).css('display','none');
+                $('.bar1',this.sRoot).css('display','block');
+                $('.bar2',this.sRoot).css('display','none');
                 break;
             case 2:
-                $('.bar2',shadowRoot).css('display','block');
-                $('.bar1',shadowRoot).css('display','block');
+                $('.bar2',this.sRoot).css('display','block');
+                $('.bar1',this.sRoot).css('display','block');
                 break;
         }
     }

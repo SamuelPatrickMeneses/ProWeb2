@@ -1,5 +1,4 @@
 import Component from './component.js';
-import Atb from './atb';
 const is = 'wb-bol';
 const template = $(`
     <template id="bol" class="h-8 w-8">
@@ -18,8 +17,7 @@ class Bol extends Component{
     build(props = {}, templatesub: JQuery = template): void{
         super.build(props, templatesub ?? template);
 
-        const shadowRoot = <ShadowRoot> this.shadowRoot;
-        this.checkBox = <HTMLInputElement> shadowRoot.querySelector('input');
+        this.checkBox = <HTMLInputElement> this.sRoot.querySelector('input');
         
         this.stylize();
         this.render();

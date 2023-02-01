@@ -19,12 +19,12 @@ class Atb extends Component{
     }
     build(props: any){
         super.build(props,template);
-        const shadowRoot = <ShadowRoot> this.shadowRoot;
+
         for(let i = 0;i < this.props.size;i++){
             let newBol = <Bol> render(props.box ? Box : Bol, {valu:2});
             this.list.push(newBol);
         }
-        this.content = $('div.atb',shadowRoot);
+        this.content = $('div.atb',this.sRoot);
         
         this.list.forEach((e,i) => {
             this.content[0].appendChild(e);
