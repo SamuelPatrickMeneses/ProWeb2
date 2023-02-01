@@ -13,18 +13,18 @@ function parseNamedNodeMap(map: NamedNodeMap):any{
 class Component extends HTMLElement{
     protected props?: any;
     protected state?: any;
+    protected sRoot: ShadowRoot = <ShadowRoot> this.shadowRoot;
     constructor(){
         super();
         if(this.attributes.length)
             this.build(parseNamedNodeMap(this.attributes))
     }
     build(props: any = {},template?: JQuery): void{
-        this.shadowRoot ?? this.attachShadow({mode:'open'});
-        const shadowRoot = <ShadowRoot> this.shadowRoot;
+        this.sRoot ?? this.attachShadow({mode:'open'});
         this.props = props;
         this.state = {...props};
-        if(template  && shadowRoot){
-            shadowRoot.innerHTML = template.html();
+        if(template){
+            this.sRoot.innerHTML = template.html();
             template[0].classList.forEach(
                 (classe) =>
                     this.classList.add(classe)    
@@ -45,10 +45,8 @@ class Component extends HTMLElement{
         return <HTMLStyleElement> DefaultStyle;
     }
     stylize(newstyle: HTMLStyleElement = Component.style): void{
-        if(newstyle){
-            const shadowRoot = <ShadowRoot> this.shadowRoot;
-            shadowRoot.appendChild(newstyle);
-        }
+        if(newstyle)
+            this.sRoot.appendChild(newstyle);
     }
 }
 window.customElements.define(is,Component);
