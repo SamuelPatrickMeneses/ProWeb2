@@ -1,10 +1,22 @@
 const is = 'wc-component';
 const styleURL = `@import url('/assets/css/dev.css');`;
+
+function parseNamedNodeMap(map: NamedNodeMap):any{
+    let returnObgect: any = {};
+    for(let i = 0; i < map.length;i++){
+        let mapNode = map[i];
+        returnObgect[mapNode.nodeName] = mapNode.nodeValue;
+    }
+    return returnObgect;
+}
+
 class Component extends HTMLElement{
     protected props?: any;
     protected state?: any;
     constructor(){
         super();
+        if(this.attributes.length)
+            this.build(parseNamedNodeMap(this.attributes))
     }
     build(props: any = {},template?: JQuery): void{
         this.shadowRoot ?? this.attachShadow({mode:'open'});
