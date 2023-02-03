@@ -41,8 +41,7 @@ class Atb extends Component{
                     if(nextBol && nextBol.value)
                         newValue++;
 
-                this.value = newValue;
-                this.render();           
+                this.value = newValue;        
             };
 
         });

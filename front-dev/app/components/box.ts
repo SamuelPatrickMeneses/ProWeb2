@@ -20,7 +20,7 @@ class Box extends Bol{
     build(props: any){
         super.build(props,template);
         
-        this.addEventListener('click',() => {
+        this.addEventListener('click', () => {
             this.state.value = (this.value + 1) % 3;
         });
 
