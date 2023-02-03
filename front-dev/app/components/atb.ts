@@ -9,11 +9,10 @@ const template = $(`
         </div>
     </template>
 `);
-const emptyJQueryObject = $('');
 class Atb extends Component{
-    protected list      : Bol[]  = [];
-    protected content   : JQuery = emptyJQueryObject;
-    public    size      : number = 0;
+    protected list       : Bol[]  = [];
+    protected content   !: JQuery ;
+    public    size       : number = 0;
     constructor(){
         super();
     }

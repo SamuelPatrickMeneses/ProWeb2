@@ -1,6 +1,6 @@
 import Atb from './components/atb.js';
 import render from './util/render.js';
-//import Label from './components/label.js';
+import Label from './components/label.js';
 //import CloseButton from './components/closerButton.js';
 //import Item from './components/item.js';
 //import ItemListView from './components/itemListView.js';
@@ -144,5 +144,6 @@ window.onload = () => {
     const box  = render(Atb,{value:3,size:5,box:true});
     root.appendChild(bol);
     root.appendChild(box);
+    root.appendChild(render(Label,{value:'label',readOnly:true}));
 };
 export default {};

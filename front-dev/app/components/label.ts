@@ -13,33 +13,29 @@ const template = $(`
         </div>
     </template>
 `);
-const p = privado();
 class Label extends Component{
+    private input     !: HTMLInputElement;
+    private label     !: HTMLLabelElement;
+    private container !: HTMLDivElement;
+    private readOnly   : boolean = false;
     constructor(){
         super();
-        if(this.attributes.argvalue && this.attributes.readOnly)
-            this.build({
-                value: this.attributes.argvalue.nodeValue,
-                readOnly: this.attributes.readOnly
-            });
     }
-    build(props){
+    build(props: any){
         super.build(props,template);
-        this.input = this.shadowRoot.querySelector('input');
-        this.label = this.shadowRoot.querySelector('label');
-        this.container = this.shadowRoot.querySelector('div');
-        this.container.removeChild(this.input);
+
+        this.input = <HTMLInputElement> this.sRoot.querySelector('input');
+        this.label =  <HTMLLabelElement>this.sRoot.querySelector('label');
+        this.container = <HTMLDivElement>this.sRoot.querySelector('div');
+
         this.input.value = this.state.value;
         this.label.innerText = this.state.value;
-        p(this).readOnly = props.readOnly;
-        this.input.onblur = () => {
-            this.container.removeChild(this.input);
-            this.container.appendChild(this.label);
-            this.render();
-        };
-        this.input.onchange = () => this.state.value = this.input.value;
+        this.readOnly = props.readOnly;
+
+        this.container.removeChild(this.input);
+
         this.onclick = () => {
-            if(p(this).readOnly !== undefined | p(this).readOnly)
+            if(this.readOnly)
                 return;
             this.container.removeChild(this.label);
             this.container.appendChild(this.input);
@@ -47,11 +43,19 @@ class Label extends Component{
             this.render();
         }; 
 
+        this.input.onblur = () => {
+            this.container.removeChild(this.input);
+            this.container.appendChild(this.label);
+            this.render();
+        };
+
+        this.input.onchange = () => this.state.value = this.input.value;
+
         this.stylize();
         this.render();
     }
     render(){
-        if(this.container.children instanceof HTMLInputElement)
+        if(this.container.children.item(0) instanceof HTMLInputElement)
             this.input.value = this.state.value;
         else
             this.label.innerText = this.state.value;
@@ -65,7 +69,7 @@ class Label extends Component{
         return this.state.value;
     }
     set value(v){
-        if(p(this).readOnly !== undefined | p(this).readOnly)
+        if(this.readOnly)
             return;
         this.state.value = v;
         this.render();

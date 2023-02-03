@@ -9,8 +9,8 @@ const template = $(`
     </template>`
 );
 class Bol extends Component{
-    protected checkBox  ?: HTMLInputElement;
-    public    index  : number = 0;
+    protected checkBox  !: HTMLInputElement;
+    public    index      : number = 0;
     constructor(){
         super();
     }
@@ -23,7 +23,6 @@ class Bol extends Component{
         this.render();
     }
     render(): void{
-        if(this.checkBox)
             this.checkBox.checked = this.state.value;
     }
     static get is(): string{

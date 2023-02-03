@@ -11,9 +11,9 @@ function parseNamedNodeMap(map: NamedNodeMap):any{
 }
 
 class Component extends HTMLElement{
-    protected props?: any;
-    protected state?: any;
-    protected sRoot: ShadowRoot = <ShadowRoot> this.shadowRoot;
+    protected props !: any;
+    protected state !: any;
+    protected sRoot !: ShadowRoot;
     constructor(){
         super();
         if(this.attributes.length)
