@@ -20,7 +20,7 @@ class Component extends HTMLElement{
             this.build(parseNamedNodeMap(this.attributes))
     }
     build(props: any = {},template?: JQuery): void{
-        this.sRoot ?? this.attachShadow({mode:'open'});
+        this. shadowRoot ?? (this.sRoot = this.attachShadow({mode:'open'}));
         this.props = props;
         this.state = {...props};
         if(template){
