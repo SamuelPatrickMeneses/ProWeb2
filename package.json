@@ -19,6 +19,8 @@
   "scripts": {
     "start": "nodemon ./src/app.js ",
     "build:style": "tailwindcss -o ./public/assets/css/dev.css",
+    "build:ts"   : "tsc",
+    "start:ts"   : "tsc -w",
     "start:style": "tailwindcss -o ./public/assets/css/dev.css -w"
   },
   "devDependencies": {
