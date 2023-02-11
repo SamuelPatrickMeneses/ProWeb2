@@ -4,8 +4,8 @@ import ColseButton from './closerButton.js';
 import Component from './component.js';
 import render from '../util/render.js';
 import privado from '../util/privado.js';
-import atbLife from './atbLife.js';
-import atbLimit from './atbLimit.js';
+import AtbLife from './atbLife.js';
+import AtbLimit from './atbLimit.js';
 const is = 'wb-item';
 const template = $(`
     <template id="item">
@@ -15,52 +15,67 @@ const template = $(`
 `); 
 const p = privado();
 class Item extends Component{
-    build(props){
+    private container !: HTMLDivElement;
+    private label     !: Label; 
+    private atbLimit  !: AtbLimit;
+    private atb       !: Atb;
+    private text      !: Label;
+    private lifebox   !: AtbLife;
+    private close     !: ColseButton;
+    private type      !: string;
+    public  size      !: number;
+    public  remove    !: (item?:Item) => void;
+    build(props: any){
         super.build(props,template);
         this.remove = this.props.remove;     
-        this.container =  this.shadowRoot.querySelector('div');
+        this.container = <HTMLDivElement> this.sRoot.querySelector('div');
+        this.type = props.type;
         if(this.state.name){
-            let lab = render(Label,{value:this.state.name});
+            let lab = <Label> render(Label,{value:this.state.name});
             this.container.appendChild(lab);
             this.label = lab;
         } 
         if(!isNaN(this.state.limit)){
-            this.atbLimit = render(atbLimit,{
-                value:this.state.limmit,
-                 size:this.state.size,
-                 box:true});
+            this.atbLimit = <AtbLimit> render(AtbLimit,{
+                value: this.state.limmit,
+                 size: this.state.size,
+                 box:  true});
             this.container.appendChild(this.atbLimit);
             $(this.container).removeClass('sm:flex-row');
         }
-        switch(this.state.type){
+        switch(this.type){
             case 'atb':
-                this.atb = render(Atb,{value:this.state.value, size:this.state.size}); 
+                this.atb = <Atb> render(Atb,{value:this.state.value, size:this.state.size}); 
                 this.container.appendChild(this.atb);
                 break;
             case 'atb-box':
-                this.atb = render(Atb,{value:this.state.value, size:this.state.size,box:true}); 
+                this.atb = <Atb> render(Atb,{value:this.state.value, size:this.state.size,box:true}); 
                 this.container.appendChild(this.atb);
                 break;
             case 'text':
-                this.text = render(Label,{value:this.state.value, size:this.state.size});
+                this.text = <Label> render(Label,{value:this.state.value, size:this.state.size});
                 this.container.appendChild(this.text);
                 break; 
             case 'life-box':
-                this.lifebox = render(atbLife,{value:props.value});
+                this.lifebox = <AtbLife> render(AtbLife,{value:props.value});
                 this.container.appendChild(this.lifebox);
                 break;
         }
-        this.close = render(ColseButton,{callBack:this.delete.bind(this)});
+        this.close = <ColseButton> render(ColseButton,{callBack:this.delete.bind(this)});
         this.container.appendChild(this.close);
         this.stylize();
     }
     render(){
         if(this.label)
             this.label.value = this.state.name;
-        if(this.atbLimmit)
+        if(this.atbLimit)
             this.atbLimit.value = this.state.limmit;
-        switch(this.state.type){
-            case 'atb', 'atb-box':
+        switch(this.type){
+            case 'atb-box':
+                this.atb.value = this.state.value;
+                this.atb.size = this.state.size;
+                break;
+            case 'atb':
                 this.atb.value = this.state.value;
                 this.atb.size = this.state.size;
                 break;
@@ -72,7 +87,7 @@ class Item extends Component{
         }
     }
     delete(){
-        p(this).remove(this);
+        this.remove(this);
     }
     showCloseButton(){
         this.close.show();
@@ -84,7 +99,7 @@ class Item extends Component{
         return is;
     }
     get value(){
-        switch(this.state.type){
+        switch(this.type){
             case 'life-box':
                 return this.lifebox.value;
             case 'text':
@@ -127,31 +142,19 @@ class Item extends Component{
         else
                 $(this.container).css('flex-direction','row');
     }
-    get type(){
-        return this.state.type;
-    }
-    set type(v){
-        return (v = undefined);
-    }
-    get size(){
-        return this.state.size;
-    }
-    set size(size){
-        return (size = undefined); 
-    }
-    get limit(){
-        if(this.atbLimit)
-            return this.atbLimit.value;
+    get limit(): number{
+        return this.atbLimit ? 
+            this.atbLimit.value : 0;
     }
 
-    set limit(v){
+    set limit(v: number){
         if(this.atbLimit){
             this.state.limit = v;
             this.atbLimit.value = v;
         }
     }
     getState(){
-        let state = {};
+        let state: any = {};
         if(this.atbLimit)
             state.limit = this.limit;
         if(this.name)
@@ -162,10 +165,6 @@ class Item extends Component{
             state.size = this.size;
         return state;   
         
-    }
-    get remove(){}
-    set remove(remove){
-        p(this).remove = remove; 
     }
 }
 window.customElements.define(is,Item);
