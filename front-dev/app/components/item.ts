@@ -61,7 +61,7 @@ class Item extends Component{
                 this.container.appendChild(this.lifebox);
                 break;
         }
-        this.close = <ColseButton> render(ColseButton,{callBack:this.delete.bind(this)});
+        this.close = <ColseButton> render(ColseButton,{onclick:this.delete.bind(this)});
         this.container.appendChild(this.close);
         this.stylize();
     }
