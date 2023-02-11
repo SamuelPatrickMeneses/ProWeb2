@@ -9,20 +9,21 @@ const template = $(`
     </template>
 `);
 class ColumnButton extends Component{
-    build(props){
+    private button !: HTMLDivElement;
+    build(props: any){
         super.build(props,template);
-        this.button = this.shadowRoot.querySelector('div');
+        this.button = <HTMLDivElement> this.sRoot.querySelector('div');
         this.button.innerText = props.text;
-        this.onclick = props.callBack;
+        this.onclick = props.onclick;
         this.stylize();
     }
     show(){
         if(this.classList.contains('hidden'))
-            this.classList.remove('hidden');//?
+            this.classList.remove('hidden');
     }
     hide(){
         if(!this.classList.contains('hidden'))
-            this.classList.add('hidden');//?
+            this.classList.add('hidden');
     }
     static get is(){
         return is;
