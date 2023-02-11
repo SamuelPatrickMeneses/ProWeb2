@@ -14,6 +14,7 @@ import Label from './components/label.js';
 //import lista from './controller/lista.js';
 //import Component from './components/component.js';
 import Bol from './components/bol.js';
+import AtbLimit from './components/atbLimit.js';
 // import html from '../index.html';
 //import style from '../assets/css/dev.css';
 window.onload = () => {
@@ -140,7 +141,7 @@ window.onload = () => {
         },
     ]}    ));*/
     //login();
-    const bol  = render(Atb,{value:3,size:5});
+    const bol  = render(AtbLimit,{value:3,size:5});
     const box  = render(Atb,{value:3,size:5,box:true});
     root.appendChild(bol);
     root.appendChild(box);
