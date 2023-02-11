@@ -1,12 +1,6 @@
 import Atb from './atb.js';
 const is = 'wb-atb-limit';
 class AtbLimit extends Atb{
-    build(props: any): void {
-        super.build(props); 
-    }
-    render(){
-        super.render();
-    }
     static get is(){
         return is;
     }
