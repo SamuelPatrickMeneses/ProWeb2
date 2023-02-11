@@ -144,6 +144,6 @@ window.onload = () => {
     const box  = render(Atb,{value:3,size:5,box:true});
     root.appendChild(bol);
     root.appendChild(box);
-    root.appendChild(render(Label,{value:'label',readOnly:true}));
+    root.appendChild(render(Label,{value:'label'}));
 };
 export default {};

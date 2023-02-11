@@ -14,10 +14,11 @@ const template = $(`
     </template>
 `);
 class ColseButton extends Component{
-    build(props){
+    private button !: HTMLDivElement;
+    build(props: any){
         super.build(props,template);
-        this.button = this.shadowRoot.querySelector('.cb');
-        this.onclick = this.props.callBack;
+        this.button = <HTMLDivElement> this.sRoot.querySelector('.cb');
+        this.onclick = this.props.onclick;
         this.stylize();
     }
     show(){
@@ -28,10 +29,6 @@ class ColseButton extends Component{
         if(!this.classList.contains('hidden')){
             this.classList.add('hidden');//?
         }
-    }
-    get callBack(){}
-    set callBack(callBack){
-        this.onclick = callBack; 
     }
     static get is(){
         return is;
