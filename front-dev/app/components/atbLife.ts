@@ -9,16 +9,19 @@ const template = $(`
     </template>
 `);
 class AtbLife extends Comment{
+    private container !: HTMLDivElement;
+    private box       !: Box;
     constructor(){
         super();
     }
-    build(props){
+    build(props: any){
         super.build(props,template);
-        this.container = this.shadowRoot.querySelector('div.atb');
-        this.container.appendChild(render(Box,{value: props.value}));
-        this.box = this.container.children[0];
-        this.box.onclick  = function(){ 
-            this.value = (this.value + 1) % 3;
+        this.container = <HTMLDivElement> this.sRoot.querySelector('div.atb');
+        this.box =  <Box> render(Box,{value: props.value});
+        this.container.appendChild(this.box);
+        this.box.onclick  = ({target}) => { 
+            let box = <Box> target;
+            box.value = (box.value + 1) % 3;
         };
         this.stylize();
     }

@@ -43,11 +43,11 @@ class Box extends Bol{
                 break;
         }
     }
-    set value(v){
+    set value(v: number){
         this.state.value = Number(v);
         this.render();
     }
-    get value(){
+    get value(): number{
         return this.state.value;
     }
     static get is(){
