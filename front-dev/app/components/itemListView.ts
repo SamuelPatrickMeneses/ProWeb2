@@ -10,7 +10,8 @@ const template = $(`
 `);
 const is = 'wb-item-list-view';
 class ItemListView extends ListView{
-    build(props){
+    public readonly type = Item;
+    build(props: any){
         super.build(props,template);
         this.render();
     }
@@ -28,10 +29,10 @@ class ItemListView extends ListView{
             this.container.appendChild(items[i]);
         }
     }
-    convert(e){
+    convert(e: any){
         if(this.type.prototype.isPrototypeOf(e))
             return e;
-        e.remove = (elemento) => this.remove(elemento);
+        e.remove = (elemento: Item) => this.removeItem(elemento);
         return render(this.type,e);
     }
     static get is(){
@@ -42,12 +43,6 @@ class ItemListView extends ListView{
     }
     hideCloseButtons(){
         this.items.forEach((e) => e.hideCloseButton());
-    }
-    get type(){
-        return  Item;
-    }
-    set type(v){
-      return (v !== null);
     }
     getState(){
         return this.items.map((e) => e.getState());
