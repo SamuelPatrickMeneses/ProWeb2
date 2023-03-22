@@ -16,41 +16,35 @@ const template = $(`
 `);
 const is = 'wb-ficha';
 class Ficha extends Component{
-    private container   !: HTMLDivElement;
-    private head        !: ItemGridView;
-    private atributos   !: Secion;
-    private habilidades !: Secion;
-    private vantagens   !: Secion;
-    private outros      !: Secion;
-    build(props :any){
+    build(props){
         super.build(props,template);
-        this.container = <HTMLDivElement>this.sRoot.querySelector('div');
-        this.head = <ItemGridView>render(ItemGridView, props.head);
+        this.container = $(this.shadowRoot).children()[0];
+        this.head = render(ItemGridView, props.head);
         this.container.appendChild(this.head);
         this.id = props.id;
-        this.atributos = <Secion>render(Secion,{name: props.atributos.name});
+        this.atributos = render(Secion,{name: props.atributos.name});
         this.container.appendChild(this.atributos);
-        this.atributos.add(<Column>render(Column,props.atributos['físicos']));
-        this.atributos.add(<Column>render(Column,props.atributos.sociais));
-        this.atributos.add(<Column>render(Column,props.atributos.mentais));
+        this.atributos.add(render(Column,props.atributos['físicos']));
+        this.atributos.add(render(Column,props.atributos.sociais));
+        this.atributos.add(render(Column,props.atributos.mentais));
 
-        this.habilidades = <Secion>render(Secion,{name: props.habilidades.name});
-        this.habilidades.add(<Column>render(Column,props.habilidades.talentos));
-        this.habilidades.add(<Column>render(Column,props.habilidades['perícias']));
-        this.habilidades.add(<Column>render(Column,props.habilidades.conhecimentos));
+        this.habilidades = render(Secion,{name: props.habilidades.name});
+        this.habilidades.add(render(Column,props.habilidades.talentos));
+        this.habilidades.add(render(Column,props.habilidades['perícias']));
+        this.habilidades.add(render(Column,props.habilidades.conhecimentos));
         this.container.appendChild(this.habilidades);
 
-        this.vantagens = <Secion>render(Secion,{name: props.vantagens.name});
-        this.vantagens.add(<Column>render(Column,props.vantagens.disciplinas));
-        this.vantagens.add(<Column>render(Column,props.vantagens.antecedentes));
-        this.vantagens.add(<Column>render(Column,props.vantagens.virtudes));
+        this.vantagens = render(Secion,{name: props.vantagens.name});
+        this.vantagens.add(render(Column,props.vantagens.disciplinas));
+        this.vantagens.add(render(Column,props.vantagens.antecedentes));
+        this.vantagens.add(render(Column,props.vantagens.virtudes));
         this.container.appendChild(this.vantagens);
 
-        this.outros = <Secion>render(Secion,{name: props.outros.name});
+        this.outros = render(Secion,{name: props.outros.name});
         
-        this.outros.add(<Column>render(Column,props.outros.desvantagens));
-        this.outros.add(<Column>render(Column,props.outros.estatus));
-        this.outros.add(<Column>render(Column,props.outros.vitalidade));
+        this.outros.add(render(Column,props.outros.desvantagens));
+        this.outros.add(render(Column,props.outros.estatus));
+        this.outros.add(render(Column,props.outros.vitalidade));
         this.container.appendChild(this.outros);
         console.log(this.getState());
         
@@ -62,7 +56,7 @@ class Ficha extends Component{
         return is;
     }
     getState(){
-        let state :any = {};
+        let state = {};
         state.head = this.head.getState();
         if(this.id)
             state.id = this.id;
