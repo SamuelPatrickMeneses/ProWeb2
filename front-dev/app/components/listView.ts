@@ -13,33 +13,36 @@ const template = $(`
 const is = 'wb-list-view';
 const p = privado();
 class ListView extends Component{
-    build(props,subTemplate){
+    private container !: HTMLDivElement;
+    public items : any[] = [];
+    
+    build(props: any,subTemplate : JQuery){
         super.build(props,subTemplate ? subTemplate : template);
-        this.container = this.shadowRoot.querySelector('div');
-        let procuração = p(this);
-        procuração.items =  Array.prototype.isPrototypeOf(props) ? props : [];
+        this.container = <HTMLDivElement> this.sRoot.querySelector('div');
+        this.items =  Array.prototype.isPrototypeOf(props) ? props : [];
         delete this.state;
         this.wrap = false;
         this.stylize();
     }
     render(){
-        p(this).items.forEach((e) => 
+        this.items.forEach((e) => 
             this.container.appendChild(e));
     }
     static get is(){
         return is;
     }
-    get(index){
-        return p(this).items[index]; 
+    get(index: number){
+        return this.items[index]; 
     }
-    add(item){
-        p(this).items.push(item);
+    add(item: Item){
+        this.items.push(item);
         this.render();
     }
-    remove(item){
-        let index = p(this).items.indexOf(item);
-        p(this).items.splice(index,1);
+    removeItem(item : Item){
+        let index = this.items.indexOf(item);
+        this.items.splice(index,1);
         this.render();
+        
     }
 
     get column(){
@@ -66,13 +69,7 @@ class ListView extends Component{
                 this.container.classList.remove('flex-wrap');
         }
     }
-    get items(){
-        return p(this).items;
-    }
-    set items(v){
-        p(this).items = v;
-        this.render();
-    }
+
 }
-window.customElements.define(is,ListView);
+window.customElements.define(is, ListView);
 export default ListView;
