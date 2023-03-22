@@ -3,6 +3,7 @@ import render from '../util/render.js';
 import ListView from './listView.js';
 import Label from './label.js';
 import Column from './column.js';
+import Item from './item.js';
 const template = $(`
     <template id="column" class="">
         <div class="flex flex-col items-stretch rounded-md divide-y-2 divide-paleta-1">
@@ -15,32 +16,35 @@ const template = $(`
 `);
 const is = 'wb-secion';
 class Secion extends Component{
-    build(props){
+    private label         !: Label;
+    private list          !: ListView;
+    public readonly type  = Column;
+    build(props: any){
         super.build(props,template);
         if(props.name){
-            this.label = render(Label,{value:props.name,readOnly:true});
-            this.shadowRoot.querySelector('.col-header')
-            .appendChild(this.label);
+            this.label = <Label>render(Label,{value:props.name,readOnly:true});
+            this.sRoot.querySelector('.col-header')
+            ?.appendChild(this.label);
         }
-        this.list = render(ListView,[]);
-        this.shadowRoot.querySelector('.col-content')
-        .appendChild(this.list);
+        this.list = <ListView>render(ListView,[]);
+        this.sRoot.querySelector('.col-content')
+        ?.appendChild(this.list);
         this.stylize();
         this.render();
     }
     render(){
     }
-    convert(e){
+    convert(e: any){
         return this.type.prototype.isPrototypeOf(e) ? 
         e : render(this.type,e);
     }
     static get is(){
         return is;
     }
-    get(index){
+    get(index : number){
         this.get(index);
     }
-    add(o){
+    add(o :Item){
         this.list.add(this.convert(o));
     }
     remove(){
@@ -51,15 +55,9 @@ class Secion extends Component{
     set column(v){
         this.list.column = v;
     }
-    get type(){
-        return  Column;
-    }
-    set type(v){
-      return (v !== null);
-    }
     getState(){
-        let state = {};
-        let items = this.list.items;
+        let state :any = {};
+        let items :Item[] = this.list.items;
         for(let i = 0; i < items.length;i++)
             state[items[i].name] = items[i].getState();
         return state;
