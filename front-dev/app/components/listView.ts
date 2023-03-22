@@ -13,9 +13,9 @@ const template = $(`
 const is = 'wb-list-view';
 const p = privado();
 class ListView extends Component{
-    private container !: HTMLDivElement;
+    public container !: HTMLDivElement;
     public items : any[] = [];
-    
+
     build(props: any,subTemplate : JQuery){
         super.build(props,subTemplate ? subTemplate : template);
         this.container = <HTMLDivElement> this.sRoot.querySelector('div');
