@@ -1,4 +1,4 @@
-export default function(hash){
+export default function(hash :string){
     'use strict';
     if(hash)
         sessionStorage.setItem('userHash',hash);
