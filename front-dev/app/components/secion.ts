@@ -44,7 +44,7 @@ class Secion extends Component{
     get(index : number){
         this.get(index);
     }
-    add(o :Item){
+    add(o :Column){
         this.list.add(this.convert(o));
     }
     remove(){
