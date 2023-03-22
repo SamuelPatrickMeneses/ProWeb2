@@ -5,6 +5,7 @@ import ItemListView from './itemListView.js';
 import Label from './label.js';
 import ColumnButton from './columnButton.js';
 import privado from '../util/privado.js';
+import ListView from './listView.js';
 const p = privado();
 const template = $(`
     <template id="column" class="grow">
@@ -20,22 +21,26 @@ const template = $(`
 `);
 const is = 'wb-column';
 class Column extends Component{
-    build(props){
+    private label    !: Label;
+    private list     !: ItemListView;
+    private addB     !: ColumnButton;
+    private removeB  !: ColumnButton;
+    build(props : any){
         super.build(props,template);
         if(props.name){
-            this.label = render(Label,{value:props.name,readOnly:true});
-            this.shadowRoot.querySelector('.col-header')
-            .appendChild(this.label);
+            this.label = <Label>render(Label,{value:props.name,readOnly:true});
+            this.sRoot.querySelector('.col-header')?.
+            appendChild(this.label);
         }
-        this.list = render(ItemListView,props.list ? props.list : []);
-        this.shadowRoot.querySelector('.col-content')
-        .appendChild(this.list);
+        this.list = <ItemListView>render(ItemListView,props.list ? props.list : []);
+        this.sRoot.querySelector('.col-content')?.
+        appendChild(this.list);
         this.list.column = true;
         if(props.closable){
-            this.addB = render(ColumnButton,{callBack:this.add.bind(this),text:'+'});
-            this.removeB = render(ColumnButton,{callBack:this.remove.bind(this),text:'-'});
-            this.shadowRoot.querySelector('.col-footer').appendChild(this.addB);
-            this.shadowRoot.querySelector('.col-footer').appendChild(this.removeB);
+            this.addB = <ColumnButton>render(ColumnButton,{callBack:this.add.bind(this),text:'+'});
+            this.removeB = <ColumnButton>render(ColumnButton,{callBack:this.remove.bind(this),text:'-'});
+            this.sRoot.querySelector('.col-footer')?.appendChild(this.addB);
+            this.sRoot.querySelector('.col-footer')?.appendChild(this.removeB);
         }
         this.stylize();
         p(this).type = props.type;
@@ -53,7 +58,7 @@ class Column extends Component{
     add(){
         let name = window.prompt('digite o nomedo novo item!');
         name = name ? name : ' ';
-        this.list.add(render(Item,{
+        this.list.add(<Item>render(Item,{
             remove:this.list.remove.bind(this.list),
             name:name,
             value:'3',
@@ -95,7 +100,7 @@ class Column extends Component{
 
     }
     getState(){
-        let state = {};
+        let state: any = {};
         if(this.label)
             state.name = this.name;
         state.list = this.list.getState();
