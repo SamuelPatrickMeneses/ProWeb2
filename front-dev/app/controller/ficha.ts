@@ -1,10 +1,12 @@
 import Ficha from '../components/ficha.js';
+import render from '../util/render.js';
 import storageHash from '../util/storageHash.js';
 import lista from './lista.js';
 
-export default function (ficha){
+export default function (ficha :any){
     'use strict';
-    $('#cabesalho').load('assets/html/ficha-header.html',undefined,
+    let fichaElement !: Ficha;
+    $('#cabesalho').load('assets/html/ficha-header.html',{},
     () => {
         $('div#dropdonw').slideUp(0);
         $('div.sanduiche').click(() => $('div#dropdonw').slideToggle());
@@ -18,7 +20,7 @@ export default function (ficha){
                     Authorization: storageHash()
                 },
                 method:'POST',
-                data: JSON.stringify($('wb-ficha')[0].getState()),
+                data: JSON.stringify(fichaElement.getState()),
                 contentType: 'application/json',
                 error: (err) => console.log(err.status)
             });
@@ -41,7 +43,8 @@ export default function (ficha){
     });
 
     let root = $('#root').html('')[0];
-    root.render(Ficha,ficha);
+    root.appendChild( render(Ficha,ficha));
+    fichaElement = (<Ficha>$('wb-ficha')[0])
     $('wb-ficha')[0].id = '#ficha';
-    console.log(JSON.stringify($('wb-ficha')[0].getState()));
+    console.log(JSON.stringify(fichaElement.getState()));
 }
