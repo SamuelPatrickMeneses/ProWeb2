@@ -13,9 +13,11 @@ const template = $(`
 const is = 'wb-grid-view';
 const p = privado();
 class ItemGridView extends Component{
-    build(props){
+    private container !: HTMLDivElement;
+    public readonly type  = Item;
+    build(props : any){
         super.build(props,template);
-        this.container = this.shadowRoot.querySelector('div.header');
+        this.container = <HTMLDivElement>this.sRoot.querySelector('div.header');
         let procuração = p(this);
         let items = []; 
         for(let o of  Object.values(props))
@@ -44,15 +46,15 @@ class ItemGridView extends Component{
     static get is(){
         return is;
     }
-    get(index){
+    get(index :number){
         return p(this).items[index]; 
     }
-    add(item){
+    add(item :Item){
         if(item instanceof this.type)
             p(this).items.push(item);
         this.render();
     }
-    remove(item){
+    removeItem(item:Item){
         let index = p(this).items.indexOf(item);
         p(this).items.splice(index,1);
         this.render();
@@ -70,10 +72,10 @@ class ItemGridView extends Component{
                 this.container.classList.remove('flex-col');
         }
     }
-    convert(e){
+    convert(e :any){
         if(this.type.prototype.isPrototypeOf(e))
             return e;
-        e.remove = (elemento) => this.remove(elemento);
+        e.remove = (elemento: Item) => this.removeItem(elemento);
         return render(this.type,e);
     }
     get items(){
@@ -83,15 +85,9 @@ class ItemGridView extends Component{
         p(this).items = v;
         this.render();
     }
-    get type(){
-        return  Item;
-    }
-    set type(v){
-      return (v !== null);
-    }
     getState(){
-        let state = {};
-        let items = this.items;
+        let state :any = {};
+        let items :Item[] = this.items;
         for(let i = 0; i < items.length;i++)
             state[items[i].name] = items[i].getState();
         return state;
