@@ -10,14 +10,14 @@ const template = $(`
     </template>
 `); 
 class ListItem extends Component{
-    build(props){
+    build(props :any){
         super.build(props,template);
         console.log(props)
         this.onclick = this.props.callback; 
         this.id = props.id;    
         let data = new Date(parseInt(props.data));
         console.log(data)
-        $('h3',this.shadowRoot)
+        $('h3',this.sRoot)
         .text(props.name)
         .next().text(`Clã: ${props['clã']}`)
         .next().text(`Data de criação: ${data.getDate()}/${data.getMonth()}/${data.getFullYear()}`);
