@@ -1,5 +1,4 @@
 import Component from './component.js';
-import privado from '../util/privado.js';
 import Item from './item.js';
 import render from '../util/render.js';
 const template = $(`
@@ -11,18 +10,17 @@ const template = $(`
     </template>
 `);
 const is = 'wb-grid-view';
-const p = privado();
 class ItemGridView extends Component{
     private container !: HTMLDivElement;
+    private itemList  !: any[] | Item[];
     public readonly type  = Item;
     build(props : any){
         super.build(props,template);
         this.container = <HTMLDivElement>this.sRoot.querySelector('div.header');
-        let procuração = p(this);
         let items = []; 
         for(let o of  Object.values(props))
             items.push(o);
-        procuração.items = items;
+        this.itemList = items;
 
         delete this.state;
         this.stylize();
@@ -47,16 +45,16 @@ class ItemGridView extends Component{
         return is;
     }
     get(index :number){
-        return p(this).items[index]; 
+        return this.itemList[index]; 
     }
     add(item :Item){
         if(item instanceof this.type)
-            p(this).items.push(item);
+            this.itemList.push(item);
         this.render();
     }
     removeItem(item:Item){
-        let index = p(this).items.indexOf(item);
-        p(this).items.splice(index,1);
+        let index = this.itemList.indexOf(item);
+        this.itemList.splice(index,1);
         this.render();
     }
 
@@ -79,10 +77,10 @@ class ItemGridView extends Component{
         return render(this.type,e);
     }
     get items(){
-        return p(this).items;
+        return this.itemList;
     }
     set items(v){
-        p(this).items = v;
+        this.itemList = v;
         this.render();
     }
     getState(){
