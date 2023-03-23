@@ -1,12 +1,12 @@
-import {base64} from '../util/ajax.js';
+import base64 from '../util/base64.js';
 import lista from './lista.js';
 import storageHash from '../util/storageHash.js';
 function loginECadastro(){
     'use strict';
     
-    var loadCadastro = null;
-    var loadLogin = null;
-    function validaEmail(e){
+    var loadCadastro !: () => void;
+    var loadLogin    !: () => void;
+    function validaEmail(e : any){
         var v = e.target.value;
         e.target.setCustomValidity('');
         if(v === '')
@@ -14,7 +14,7 @@ function loginECadastro(){
         else if(!e.target.validity.valid)
             e.target.setCustomValidity('Email Invalido');
     }
-    function validaSenha(e){
+    function validaSenha(e :any){
         var v = e.target.value;
         e.target.setCustomValidity('');
         if(v === '')
@@ -24,12 +24,12 @@ function loginECadastro(){
         
         
     }
-    function validaSenha2(e){
+    function validaSenha2(e :any){
         var v = e.target.value;
         e.target.setCustomValidity('');
         if(v === '')
             e.target.setCustomValidity('Campo Obrigatorio.');
-        else if(v !== document.forms.item('cadastro').senha.value)
+        else if(v !== document.forms.item(1)?.senha.value)
             e.target.setCustomValidity('As senhas não coincidem.');
     }
     function launcherLogin(){
@@ -39,19 +39,19 @@ function loginECadastro(){
         $('#root').load('assets/html/panel-cadastro.html',loadCadastro);
     }
     loadLogin = function(){
-        var f  = document.forms.item('login');
+        var f :any = document.forms.item(1);
         f.email.oninvalid = validaEmail;
         f.senha.oninvalid = validaSenha;
         $(f.email).blur(validaEmail);
         $(f.senha).blur(validaSenha);
-        document.querySelector('.anoder-panel').addEventListener('click',launcherCadastro);
+        document.querySelector('.anoder-panel')?.addEventListener('click',launcherCadastro);
         $('form').submit((event)=> {
             event.preventDefault();
             let request = {
                 email:$('#email').val(),
                 senha:$('#senha').val()
             };
-            let hash = base64.encode(request.email,request.senha);
+            let hash = base64.utf8_to_b64(`${request.email} ${request.senha}`);
             $.ajax('/api/ficha',{
                 statusCode:{
                     200: (data) => {
@@ -69,14 +69,15 @@ function loginECadastro(){
         });
     };
     loadCadastro = function(){
-        var f  = document.forms.item('cadastro');
+        var f :any = document.forms.item(1);
         f.email.oninvalid = validaEmail;
         f.senha.oninvalid = validaSenha;
         f.senha2.oninvalid = validaSenha2;
         $(f.email).blur(validaEmail);
         $(f.senha).blur(validaSenha);
         f.senha2.addEventListener('input',validaSenha2);
-        document.querySelector('.anoder-panel').addEventListener('click', launcherLogin);
+        document.querySelector('.anoder-panel')?.
+        addEventListener('click', launcherLogin);
         $('form').submit((event)=>{
             
             event.preventDefault();
@@ -89,7 +90,7 @@ function loginECadastro(){
                     422:() =>
                         console.log('Este email já esta cadastrado!',422),
                     201: (data) => {
-                            sessionStorage.setItem('api/fichas',undefined,JSON.stringify(request));
+                            sessionStorage.setItem('api/fichas',JSON.stringify(request));
                             console.log(data);
                                 launcherLogin();
                                 console.log('Usuario cadastrado!');
