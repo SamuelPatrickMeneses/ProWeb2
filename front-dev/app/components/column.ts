@@ -4,9 +4,8 @@ import Item from './item.js';
 import ItemListView from './itemListView.js';
 import Label from './label.js';
 import ColumnButton from './columnButton.js';
-import privado from '../util/privado.js';
 import ListView from './listView.js';
-const p = privado();
+
 const template = $(`
     <template id="column" class="grow">
         <div class="flex flex-col items-stretch bg-paleta-5 rounded-md divide-y-2 divide-paleta-1">
@@ -25,6 +24,8 @@ class Column extends Component{
     private list     !: ItemListView;
     private addB     !: ColumnButton;
     private removeB  !: ColumnButton;
+    private hideCB   !: boolean;
+    private type     !: string;
     build(props : any){
         super.build(props,template);
         if(props.name){
@@ -43,8 +44,8 @@ class Column extends Component{
             this.sRoot.querySelector('.col-footer')?.appendChild(this.removeB);
         }
         this.stylize();
-        p(this).type = props.type;
-        p(this).hideCB = true;
+        this.type = props.type;
+        this.hideCB = true;
         this.render();
     }
     render(){
@@ -67,13 +68,12 @@ class Column extends Component{
         }));
     }
     remove(){
-        let proxy = p(this);
-        if(proxy.hideCB){
+        if(this.hideCB){
             this.showCloseButtons();
-            proxy.hideCB = false;
+            this.hideCB = false;
         }else{
             this.hideCloseButtons();
-            proxy.hideCB = true;
+            this.hideCB = true;
         }
     }
     showCloseButtons(){
@@ -105,7 +105,7 @@ class Column extends Component{
             state.name = this.name;
         state.list = this.list.getState();
         state.closable = this.state.closable;
-        state.type = p(this).type;
+        state.type = this.type;
         return state;
     }
 }
