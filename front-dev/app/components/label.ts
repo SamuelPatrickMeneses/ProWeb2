@@ -1,5 +1,4 @@
 import Component from './component.js';
-import privado from '../util/privado.js';
 const is = 'wb-label';
 const template = $(`    
     <template id="label" class="min-w-1/2 min-h-[56px]">

@@ -1,5 +1,4 @@
 import Component from './component.js';
-import privado from '../util/privado.js';
 import Item from './item.js';
 const template = $(`
     <template id="list-view">
@@ -11,7 +10,6 @@ const template = $(`
     </template>
 `);
 const is = 'wb-list-view';
-const p = privado();
 class ListView extends Component{
     public container !: HTMLDivElement;
     public items : any[] = [];

@@ -3,7 +3,6 @@ import Label from './label.js';
 import ColseButton from './closerButton.js';
 import Component from './component.js';
 import render from '../util/render.js';
-import privado from '../util/privado.js';
 import AtbLife from './atbLife.js';
 import AtbLimit from './atbLimit.js';
 const is = 'wb-item';
@@ -13,7 +12,6 @@ const template = $(`
         </div>
     </template>
 `); 
-const p = privado();
 class Item extends Component{
     private container !: HTMLDivElement;
     private label     !: Label; 
