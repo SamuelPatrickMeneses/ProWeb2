@@ -5,8 +5,6 @@
 const route = require('./api/index.js');
 const app = require('./config.js');
 const { Console } = require('console');
-const outrosSchema = require('./validation/storyteller/outrosSchema.js');
-const headerSchema = require('./validation/storyteller/headerSchema.js');
 const path = require('path');
 
 /*app.use((error,request,response,next)=>{
@@ -68,8 +66,10 @@ app.post('/panel',(request,response)=>{
   });
 });*/
 
+
+
 app.setStatic(path.join(__dirname,'../public'));
-//app.use('/api',route);
+app.use('/api',route);
 app.listen(app.get('port'),() => {
   console.log(`port: ${app.get('port')}`);
 });
