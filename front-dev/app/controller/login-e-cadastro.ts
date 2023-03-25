@@ -39,11 +39,12 @@ function loginECadastro(){
         $('#root').load('assets/html/panel-cadastro.html',loadCadastro);
     }
     loadLogin = function(){
-        var f :any = document.forms.item(1);
-        f.email.oninvalid = validaEmail;
-        f.senha.oninvalid = validaSenha;
-        $(f.email).blur(validaEmail);
-        $(f.senha).blur(validaSenha);
+        let email = $('#email');
+        let senha = $('#senha');
+        email.on('invalid',validaEmail);
+        senha.on('invalid', validaSenha);
+        email.blur(validaEmail);
+        senha.blur(validaSenha);
         document.querySelector('.anoder-panel')?.addEventListener('click',launcherCadastro);
         $('form').submit((event)=> {
             event.preventDefault();
@@ -58,6 +59,9 @@ function loginECadastro(){
                         storageHash(hash);
                         console.log(data);
                         lista(data);
+                    },
+                    404:(err) =>{
+                        console.log(err);
                     }
                 },
                 error:(data) => 
@@ -69,13 +73,15 @@ function loginECadastro(){
         });
     };
     loadCadastro = function(){
-        var f :any = document.forms.item(1);
-        f.email.oninvalid = validaEmail;
-        f.senha.oninvalid = validaSenha;
-        f.senha2.oninvalid = validaSenha2;
-        $(f.email).blur(validaEmail);
-        $(f.senha).blur(validaSenha);
-        f.senha2.addEventListener('input',validaSenha2);
+        let email = $('#email');
+        let senha = $('#senha');
+        let senha2 = $('#senha2');
+        email.on('invalid',validaEmail);
+        senha.on('invalid', validaSenha);
+        senha2.on('invalid', validaSenha2);
+        email.blur(validaEmail);
+        senha.blur(validaSenha);
+        senha2.on('input',validaSenha2);
         document.querySelector('.anoder-panel')?.
         addEventListener('click', launcherLogin);
         $('form').submit((event)=>{
