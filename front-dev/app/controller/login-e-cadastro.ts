@@ -21,15 +21,13 @@ function loginECadastro(){
             e.target.setCustomValidity('Campo Obrigatorio.');
         else if(!e.target.validity.valid)
             e.target.setCustomValidity('Senha invalida.');
-        
-        
     }
     function validaSenha2(e :any){
         var v = e.target.value;
         e.target.setCustomValidity('');
         if(v === '')
             e.target.setCustomValidity('Campo Obrigatorio.');
-        else if(v !== document.forms.item(1)?.senha.value)
+        else if($('#senha').val() !== $('#senha2').val())
             e.target.setCustomValidity('As senhas não coincidem.');
     }
     function launcherLogin(){
@@ -79,6 +77,7 @@ function loginECadastro(){
         email.on('invalid',validaEmail);
         senha.on('invalid', validaSenha);
         senha2.on('invalid', validaSenha2);
+        senha2.on('change', validaSenha2);
         email.blur(validaEmail);
         senha.blur(validaSenha);
         senha2.on('input',validaSenha2);
