@@ -2,6 +2,7 @@ import ListItem from '../components/listItem.js';
 import ficha from './ficha.js';
 import storageHash from '../util/storageHash.js';
 import render from '../util/render.js';
+import ColumnButton from '../components/columnButton.js';
 export default function lista(list :any[]){
     'use strict';
     console.log(list)
@@ -9,7 +10,12 @@ export default function lista(list :any[]){
     () => {
         $('div#dropdonw').slideUp(0);
         $('div.sanduiche').click(() => $('div#dropdonw').slideToggle());
-        $('#novaFicha').click(() => {
+        const button = render(ColumnButton,{text:'nova ficha'});
+        
+        button.id = 'novaFichab';
+        root.appendChild(button);
+        console.log(button)
+        $('#novaFichab').on('click',() => {
             $.ajax('/mok.json',{
                 success: (mok) => {
                     ficha(mok);
