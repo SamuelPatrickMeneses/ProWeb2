@@ -2,7 +2,7 @@ import Component from './component.js';
 const is = 'wb-clumn-button';
 const template = $(`
     <template id="column-button">
-        <div class="py-2 text-center w-16 h-16 text-4xl transition-colors duration-200 bg-paleta-3
+        <div class="py-2 text-center min-w-16 h-16 text-4xl transition-colors duration-200 bg-paleta-3
         rounded-md box-border ring-2 ring-paleta-5 text-paleta-5 
         active:ring-paleta-3 active:bg-paleta-5 
         active:text-paleta-3"></div>
