@@ -38,8 +38,8 @@ class Column extends Component{
         appendChild(this.list);
         this.list.column = true;
         if(props.closable){
-            this.addB = <ColumnButton>render(ColumnButton,{callBack:this.add.bind(this),text:'+'});
-            this.removeB = <ColumnButton>render(ColumnButton,{callBack:this.remove.bind(this),text:'-'});
+            this.addB = <ColumnButton>render(ColumnButton,{onclick:this.add.bind(this),text:'+'});
+            this.removeB = <ColumnButton>render(ColumnButton,{onclick:this.remove.bind(this),text:'-'});
             this.sRoot.querySelector('.col-footer')?.appendChild(this.addB);
             this.sRoot.querySelector('.col-footer')?.appendChild(this.removeB);
         }
